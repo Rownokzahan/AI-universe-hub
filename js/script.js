@@ -1,6 +1,7 @@
 let fetchData = [];
 
 const loadData = () => {
+    displaySpinner(true);
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
         .then(data => {
@@ -46,7 +47,7 @@ const displayCards = data => {
             </div >
             `;
     });
-
+    displaySpinner(false);
 }
 
 const loadCardDetails = id => {
@@ -108,3 +109,8 @@ document.getElementById('show-all-btn').addEventListener('click',function(event)
     event.target.parentNode.removeChild(event.target);
     displayCards(fetchData);
 })
+
+function displaySpinner(isTrue){
+    const spinner = document.getElementById('spinner');
+    isTrue === true ? spinner.classList.remove('hidden') : spinner.classList.add('hidden');
+}
