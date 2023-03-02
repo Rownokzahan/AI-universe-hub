@@ -57,7 +57,7 @@ const loadCardDetails = id => {
 
 const displayCardDetails = data => {
     const { description, image_link, pricing, features, integrations, input_output_examples, accuracy } = data;
-    
+
     const cardDetails = document.getElementById('card-details');
     cardDetails.innerHTML = '';
     cardDetails.innerHTML =
@@ -103,3 +103,8 @@ const displayCardDetails = data => {
         `;
 
 }
+
+document.getElementById('show-all-btn').addEventListener('click',function(event){
+    event.target.parentNode.removeChild(event.target);
+    displayCards(fetchData);
+})
