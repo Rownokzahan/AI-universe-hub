@@ -115,3 +115,11 @@ function displayElementById(id, isTrue) {
     const element = document.getElementById(id);
     isTrue === true ? element.classList.remove('hidden') : element.classList.add('hidden');
 }
+
+const sortCards = () => {
+    // sorting fetchData by date
+    fetchData.sort((a, b) => {
+        return new Date(a.published_in) - new Date(b.published_in);
+    });
+    displayCards(fetchData);
+}
