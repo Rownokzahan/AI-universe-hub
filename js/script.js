@@ -98,7 +98,7 @@ const displayCardDetails = data => {
             </div>
 
             <div class="absolute right-4 top-6">
-                <span class="p-2 text-white rounded-xl bg-red-500">${accuracy.score? accuracy.score * 100 + "% accuracy" : ''}</span>
+                ${accuracy.score ? `<span class="p-2 text-white rounded-xl bg-red-500">${accuracy.score * 100} % accuracy</span>`: ''}                
             </div>
         </div>
         `;
