@@ -117,9 +117,11 @@ function displayElementById(id, isTrue) {
 }
 
 const sortCards = () => {
+    displayElementById('spinner', true);
     // sorting fetchData by date
     fetchData.sort((a, b) => {
         return new Date(a.published_in) - new Date(b.published_in);
     });
     displayCards(fetchData);
+    displayElementById('show-all-btn', false);
 }
