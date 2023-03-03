@@ -82,7 +82,7 @@ const displayCardDetails = data => {
                     <div>
                         <h2 class="text-xl font-semibold">Integrations</h2>
                         <ul class="text-gray-500 list-inside list-disc">
-                            ${integrations ? integrations.map(integration => `<li>${integration}</li>`).join('') : "<li>No data Found</li>"}                             
+                            ${integrations ? integrations.map(integration => `<li>${integration}</li>`).join('') : "No data Found"}                             
                         </ul>
                     </div>
                 </div>
