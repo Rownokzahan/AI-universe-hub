@@ -1,7 +1,7 @@
 let fetchData = [];
 
 const loadData = () => {
-    displaySpinner(true);
+    displayElementById('spinner', true);
     fetch('https://openapi.programming-hero.com/api/ai/tools')
         .then(res => res.json())
         .then(data => {
@@ -47,8 +47,8 @@ const displayCards = data => {
             </div >
             `;
     });
-    displaySpinner(false);
-    displayShowAllButton(true);
+    displayElementById('spinner', false);
+    displayElementById('show-all-btn', true);
 }
 
 const loadCardDetails = id => {
@@ -99,24 +99,19 @@ const displayCardDetails = data => {
             </div>
 
             <div class="absolute right-4 top-6">
-                ${accuracy.score ? `<span class="p-2 text-white rounded-xl bg-red-500">${accuracy.score * 100} % accuracy</span>`: ''}                
+                ${accuracy.score ? `<span class="p-2 text-white rounded-xl bg-red-500">${accuracy.score * 100} % accuracy</span>` : ''}                
             </div>
         </div>
         `;
 
 }
 
-document.getElementById('show-all-btn').addEventListener('click',function(event){
+document.getElementById('show-all-btn').addEventListener('click', function (event) {
     displayCards(fetchData);
-    displayShowAllButton(false);
+    displayElementById('show-all-btn', false);
 })
 
-function displaySpinner(isTrue){
-    const spinner = document.getElementById('spinner');
-    isTrue === true ? spinner.classList.remove('hidden') : spinner.classList.add('hidden');
-}
-
-function displayShowAllButton(isTrue){
-    const button = document.getElementById('show-all-btn');
-    isTrue === true ? button.classList.remove('hidden') : button.classList.add('hidden');
+function displayElementById(id, isTrue) {
+    const element = document.getElementById(id);
+    isTrue === true ? element.classList.remove('hidden') : element.classList.add('hidden');
 }
