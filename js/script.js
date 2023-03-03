@@ -48,6 +48,7 @@ const displayCards = data => {
             `;
     });
     displaySpinner(false);
+    displayShowAllButton(true);
 }
 
 const loadCardDetails = id => {
@@ -106,11 +107,16 @@ const displayCardDetails = data => {
 }
 
 document.getElementById('show-all-btn').addEventListener('click',function(event){
-    event.target.parentNode.removeChild(event.target);
     displayCards(fetchData);
+    displayShowAllButton(false);
 })
 
 function displaySpinner(isTrue){
     const spinner = document.getElementById('spinner');
     isTrue === true ? spinner.classList.remove('hidden') : spinner.classList.add('hidden');
+}
+
+function displayShowAllButton(isTrue){
+    const button = document.getElementById('show-all-btn');
+    isTrue === true ? button.classList.remove('hidden') : button.classList.add('hidden');
 }
